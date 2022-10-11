@@ -4,7 +4,7 @@ import rospy
 from geometry_msgs.msg import Twist
 
 class MoveRobotSquare:
-""" This node moves a turtlebot in a square pattern. """"
+	""" This node moves a turtlebot in a square pattern. """
 	def __init__(self): # define node, publisher, and initiate toggle
 		self.counter = 1
 		rospy.init_node('drive_in_square')

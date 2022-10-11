@@ -1,0 +1,63 @@
+Name: Riya Sahni
+
+Grades for WarmUp Project
+Intro to Robotics, Fall of 2022, University of Chicago
+
+
+Description                   Points Earned/Total | Notes and Comments
+--------------------------------------------------|------------------------------
+Total                                   000/100   |
+                                                  |
+--------------------------------------------------|------------------------------
+Writeup:                                 00/30    |
+                                                  |
+   - Drive in a square:                           |
+      + high level descriptions           2/2     | Thorough yet concise, nice!
+      + code explanation                  4/4     | Thorough yet concise, nice!
+      + gif                               2/2     |
+                                                  |
+   - Wall Follower:                               |
+      + high level descriptions           0/2     |
+      + code explanation                  0/4     |
+      + gif                               0/2     |
+                                                  |
+   - Person Follower:                             |
+      + high level descriptions           0/2     |
+      + code explanation                  0/4     |
+      + gif                               0/2     |
+                                                  |
+   - Challenges:                          0/2     |
+                                                  |
+   - Future Work:                         0/2     |
+                                                  |
+   - Takeaways:                           0/2     |
+                                                  |
+--------------------------------------------------|------------------------------
+Code:                                    00/64    |
+                                                  |
+   - Drive in a square:                           |
+      + implementation                   16/16    | Had to make a minor edit (class comment indent/quotation marks) for script to run, but otherwise good.
+      + OOP                               2/2     |
+      + comments/readability              2/2     |
+                                                  |
+   - Wall Follower:                               |
+      + implementation                   00/18    |
+      + OOP                               0/2     |
+      + comments/readability              0/2     |
+                                                  |
+   - Person Follower:                             |
+      + implementation                   00/18    |
+      + OOP                               0/2     |
+      + comments/readability              0/2     |
+                                                  |
+--------------------------------------------------|------------------------------
+Rosbag Recordings:                        0/6     |
+                                                  |
+   - Drive in a square:                   2/2     |
+                                                  |
+   - Wall Follower:                       0/2     |
+                                                  |
+   - Person Follower                      0/2     |
+                                                  |
+--------------------------------------------------|------------------------------
+   Other Notes & Comments:
