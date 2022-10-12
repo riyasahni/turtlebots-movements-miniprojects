@@ -52,7 +52,7 @@ class FollowPerson(object):
 		# check if robot is already within/at the set distance from the human
 		if min_dist_from_object == 0 or min_dist_from_object <= stopping_distance:
 		# if robot is facing human directly then stop
-			if min_angle == 0 or min_dist_from_object == 0:
+			if min_angle <= 45 or min_angle >= 315 or min_dist_from_object == 0:
 				self.twist.linear.x = 0
 				self.twist.angular.z = 0
 		# else turn robot until it faces human direcly
