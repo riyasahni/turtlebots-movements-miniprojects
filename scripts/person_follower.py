@@ -8,7 +8,7 @@ from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Vector3
 
 # How close robot will get to human
-stopping_distance = 0.4
+stopping_distance = 0.5
 
 class FollowPerson(object):
 	"""This node makes the robot follow a person  """
@@ -46,23 +46,23 @@ class FollowPerson(object):
 				min_dist_from_object = data.ranges[a]
 				min_angle = a
 
-		print("min angle", min_angle)
-		print("min distance", min_dist_from_object)
-
 		# check if robot is already within/at the set distance from the human
 		if min_dist_from_object == 0 or min_dist_from_object <= stopping_distance:
 		# if robot is facing human directly then stop
-			if min_angle <= 45 or min_angle >= 315 or min_dist_from_object == 0:
+			if min_angle <= 10 or min_angle >= 350 or min_dist_from_object == 0:
 				self.twist.linear.x = 0
 				self.twist.angular.z = 0
 		# else turn robot until it faces human direcly
+			elif min_angle >= 180:
+				self.twist.linear.x=0
+				self.twist.angular.z=-0.4
 			else:
 				self.twist.linear.x = 0
 				self.twist.angular.z = 0.4
 
 		# if robot is facing closest object, then move straight
 		elif min_angle <=45 or min_angle >= 315:
-			self.twist.linear.x = 0.1
+			self.twist.linear.x = 0.15
 			self.twist.angular.z = 0
 		# else if closest object is directly behind then flip robot until it faces backwards
 		elif (min_angle > 135 and min_angle <= 225):
@@ -71,11 +71,11 @@ class FollowPerson(object):
 		#  else if closest object is towards left of robot then turn robot left
 		elif (min_angle > 45 and min_angle <= 135):
 			self.twist.linear.x=0.1
-			self.twist.angular.z = 0.3
+			self.twist.angular.z = 0.55
 		# else if closes object is towards right of robot  then turn robot right
 		elif (min_angle > 225 and min_angle <= 315):
 			self.twist.linear.x = 0.1
-			self.twist.angular.z = -0.3
+			self.twist.angular.z = -0.55
 
 		# publish message to cmd_vel
 		self.twist_pub.publish(self.twist)
