@@ -12,7 +12,6 @@ from geometry_msgs.msg import Vector3
 class FollowWall(object):
 	"""This node makes the robot follow a wall"""
 	def __init__(self):
-		# print("testing1")
 		# start rospy node
 		rospy.init_node("follow_wall19")
 
@@ -28,79 +27,84 @@ class FollowWall(object):
 		self.twist = Twist(linear=lin, angular=ang)
 
 	def process_scan(self, data):
-		# print("testing wall follow")
-		# create an array [f, l, r] that keeps track of dist from
-		# robot to nearest object on its front, left and right sides
+		# initialize variables to keep track of distances to and
+		# angles of the closest objects to  front & left of the robot
 		min_front_dist = 0
 		min_front_angle = 0
 		left_dist = 0
 		left_angle = 0
-		# fill in array with distances to nearest robot object on towards its front,
-		# left, and right sides
+
+		# find first non-zero values (if any) to set the 'min_front_dist'
+		# and 'left_dist' variables to
 
 		for a in range(0, 359):
-			if (a <= 10 or a>=349) and data.ranges[a] != 0:
-				min_front_dist=data.ranges[a] # find first non-zero distance in front of robot
-			if(a > 45 and a <= 135) and data.ranges[a] != 0:
+			if (a <= 20 or a>=339) and data.ranges[a] != 0:
+				min_front_dist=data.ranges[a]
+			if(a > 55 and a <= 125) and data.ranges[a] != 0:
 				left_dist = data.ranges[a]
 
-		# finding the distance to nearest object in front of robot
-		# saving nearest front distance and the angle it falls in
-		for a in range(0, 10):
+		# finding the distance to nearest object to the front of robot
+		# and saving the distance and angle it is at to robot
+		for a in range(0, 20):
 			if data.ranges[a] <= min_front_dist and data.ranges[a] != 0:
 				min_front_dist = data.ranges[a]
 				min_front_angle = a
-		for a in range (349, 359):
+		for a in range (339, 359):
 			if data.ranges[a] <= min_front_dist and data.ranges[a] != 0:
 				min_front_dist = data.ranges[a]
 				min_front_angle = a
 
 		# finding distance to nearest object to the left of robot
-		# saving nearest left distance and angle it falls in
-		for a in range(45, 135):
+		# and saving nearest left distance and angle it is at to robot
+		for a in range(55, 135):
 			if data.ranges[a] <= left_dist  and data.ranges[a] != 0:
 				left_dist = data.ranges[a]
 				left_angle = a
 
+		# default robot to just move forward if there is not left wall nearby or
+		# any wall coming up in front
 		self.twist.linear.x = 0.1
 		self.twist.angular.z = 0
 
-		# case 3: wall on LHS
-		if left_dist  > 0.75:
-			print("turning towards wall")
+		# case 1: wall on LHS and you are too far from it
+		if left_dist  > 0.5 and left_dist != float('inf'):
 			self.twist.linear.x = 0.1
-			self.twist.angular.z = 0.7
-		elif .25 <= left_dist <= 0.75:
-			print("going parallel to wall")
+			self.twist.angular.z = 0.75 # turn towards wall to get closer
+		elif .35 <= left_dist <= 0.5:
+			# adjust slightly into the wall to become more perpendicular
 			if left_angle > 95:
 				self.twist.linear.x = 0.1
-				self.twist.angular.z = 0.6
+				self.twist.angular.z = 0.4
+			# else if too close, adjust slightly away from wall to become
+			# more perpendicular
 			elif left_angle < 85:
 				self.twist.linear.x = 0.1
-				self.twist.angular.z = -0.6
+				self.twist.angular.z = -0.4
+			# else if perpendicular to wall already, keep straight!
 			else:
 				self.twist.linear.x = 0.1
 				self.twist.angular.z = 0
+		# case 2: wall on LHS and you are too close to it
 		elif left_dist < 0.25  and left_dist != 0:
-			print("turning away from wall")
+			# turn away from wall to maintain distance b/w wall & robot
 			self.twist.linear.x = 0.1
-			self.twist.angular.z = -0.7
+			self.twist.angular.z = -0.75
 
-		# case 2: in front of wall and need to turn.
-		if min_front_dist < wall_distance and min_front_dist!=0:
-			print("need to turn")
+		# case 3: arrived front of wall and robot needs to turn some way
+		if min_front_dist <= 0.6 and min_front_dist!=0:
 			self.twist.linear.x = 0
-			self.twist.angular.z = -0.6 # choosing to make robot turn right
+			self.twist.angular.z = -0.65 # choosing to make robot turn right
 
-
-
+		# publish the message
 		self.twist_pub.publish(self.twist)
 
 	def run(self):
+		# keep the program alive
 		rospy.spin()
 
 
 if __name__ == '__main__':
+	# declare a node and run it
 	node = FollowWall()
 	node.run()
 
