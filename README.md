@@ -45,7 +45,11 @@ Otherwise, I created angle buckets: 135-225, 45-135, 225-315 - so that when the 
 falls within these buckets, the robot either flips around, turns right, or turns left to
 keep following the person. 
 
+
 Gif:
+
+![person_follower_gif_FINAL](https://user-images.githubusercontent.com/55162345/195950919-5945d1d5-d6c7-4221-80e9-856207de8047.gif)
+
 
 Behavior: 'Wall follower' assignment
 
@@ -76,9 +80,14 @@ if the robot is relatively parallel to the wall, it will keep going straight. Ot
 robot is directly in front of the wall within set distance range, then it just needs to turn
 right. This way, the robot is not making fixed 90-degree turns when it follows along the wall.
 
-Gif:
-![wall-follower_short_gif](https://user-images.githubusercontent.com/55162345/195949146-f550c118-5907-41cd-8698-920f7ef5dc51.gif)
 
-![wall-follower_longer](https://user-images.githubusercontent.com/55162345/195949209-f2ad1e62-a792-404d-bdf9-3ee970ab315f.gif)
+Gif #1: 
+
+![wall-follower_shorter_gif_FINAL](https://user-images.githubusercontent.com/55162345/195950527-6aaaaaed-4e46-4362-8d3c-320bfd66a8f7.gif)
+
+Gif #2:
+
+![wall_follower_long_gif_FINAL](https://user-images.githubusercontent.com/55162345/195950558-ee04027d-7129-4e9f-aba6-04a8f47b3453.gif)
+
 
 
