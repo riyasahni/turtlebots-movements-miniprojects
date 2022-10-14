@@ -4,13 +4,14 @@ import rospy
 from geometry_msgs.msg import Twist
 
 class MoveRobotSquare:
-""" This node moves a turtlebot in a square pattern. """"
+	""" This node moves a turtlebot in a square pattern. """
 	def __init__(self): # define node, publisher, and initiate toggle
 		self.counter = 1
 		rospy.init_node('drive_in_square')
 		self.publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 		self.move = Twist()
 	def run(self):
+		print("testing in drive square")
 		while not rospy.is_shutdown():
 			if self.counter%2 == 0: # if toggle is even, turn now
 				self.move.angular.z = 0.55
