@@ -64,43 +64,34 @@ class FollowWall(object):
 		# default robot to just move forward if there is not left wall nearby or
 		# any wall coming up in front
 		if min_front_dist > 0.6:
-			print("min front dist", min_front_dist)
 			self.twist.linear.x = 0.1
 			self.twist.angular.z = 0
 		# case 1: wall on LHS and you are too far from it
-		if (left_dist  > 0.5 and left_dist != float('inf')): #and min_front_dist <=0.6):
-			print("left dist", left_dist)
-			print("turn closer to wall")
+		if (left_dist  > 0.5 and left_dist != float('inf')):
 			self.twist.linear.x = 0.05
 			self.twist.angular.z = 0.65 # turn towards wall to get closer
 		if .35 <= left_dist <= 0.55:
 			# adjust slightly into the wall to become more perpendicular
 			if left_angle > 95:
-				print("adjust into wall")
 				self.twist.linear.x = 0.08
 				self.twist.angular.z = 0.7
 			# else if too close, adjust slightly away from wall to become
 			# more perpendicular
 			elif left_angle < 85:
-				print("adjust away from wall")
 				self.twist.linear.x = 0.09
 				self.twist.angular.z = -0.7
 			# else if perpendicular to wall already, keep straight!
 			else:
-				print("keep parallel")
 				self.twist.linear.x = 0.1
 				self.twist.angular.z = 0
 		# case 2: wall on LHS and you are too close to it
 		elif left_dist < 0.25  and left_dist != 0:
-			print("turn away from wall")
 			# turn away from wall to maintain distance b/w wall & robot
 			self.twist.linear.x = 0.1
 			self.twist.angular.z = -0.55
 
 		# case 3: arrived front of wall and robot needs to turn some way
 		if min_front_dist <= 0.6 and min_front_dist!=0:
-			print("min front dist 90", min_front_dist)
-			print("turn 90 deg")
 			self.twist.linear.x = 0
 			self.twist.angular.z = -0.65 # choosing to make robot turn right
 
