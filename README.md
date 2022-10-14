@@ -77,3 +77,8 @@ robot is directly in front of the wall within set distance range, then it just n
 right. This way, the robot is not making fixed 90-degree turns when it follows along the wall.
 
 Gif:
+![wall-follower_short_gif](https://user-images.githubusercontent.com/55162345/195949146-f550c118-5907-41cd-8698-920f7ef5dc51.gif)
+
+![wall-follower_longer](https://user-images.githubusercontent.com/55162345/195949209-f2ad1e62-a792-404d-bdf9-3ee970ab315f.gif)
+
+
