@@ -90,4 +90,42 @@ Gif #2:
 ![wall_follower_long_gif_FINAL](https://user-images.githubusercontent.com/55162345/195950558-ee04027d-7129-4e9f-aba6-04a8f47b3453.gif)
 
 
+Challenges:
+The main challenge that I faced in general for all of the behaviors was dealing with noise, and 
+figuring out how to adjust the robot's movements using angle buckets. The drive_square behavior
+was not as difficult in this area as the others, and I think the primary challenge I had for that
+for that one was just learning more about how the sleep function works. For the wall_follower, the
+most difficult part of this assignment was adjusting the robot so that it maintained some set
+distance with the wall it was parallel to. I had to experiment a lot with the linear and angular
+velocities when I tested my program with the physical turtlebot and manually adjust those values 
+so that the turtlebot was not moving too eratically, and so that it was able to make turns that
+physcially allowed it to adjust its distance to the wall in time before it needed to make its
+next turn. I also realized during the person_follower assignment, that I needed to clear the area
+around me from objects, so that when I was moving around to test the robot, it would not suddenly
+start moving towards some other object that was now closer to it.
 
+Future work:
+If I had more time, I would have definitely incorporated some method that would adjust the robot's
+speed depending on how far away it was from an object. For example, if the robot was quite far
+away from a wall, then it would travel relatively fast towards the wall, and slow down as it
+approaches the wall, before it makes its turn. This would have really helped make my wall_follower
+turtlebot travel more smoothly and help it have to "course-correct" less often. I also could have
+created a higher number of smaller angle buckets for the sensor readings that could have made the
+turns a lot more precise and smoother as well, but that would have taken a lot more time and
+experimentation. Lastly, I would have liked to test my code on different surfaces to see how the
+robot's movements and speed change when it travels on carpet versus a hard surface. If the robot
+naturally turns much more smoothly on a hard surface, I would have tested my robot and adjusted
+linear and angular velocities on that surface instead.
+
+Takewayas:
+- start testing on physical turtlebot sooner: I had been working from my personal laptop and
+testing on Gazebo for the first 2/3 of the project, and only really started to test on the
+physcial turtlebot towards the end of the deadline. There were many inconsistencies between the
+virtual turtlebot (which does not have to deal with the limitations of a physcial environment) and
+the physical turtlebot in crerar. Having to manually test and adjust my numbers on the physcial
+turtlebot was very stressful.
+- use a video-speeding tool and convert video to GIF online to upload to README file: I spent 
+around 3 hours on Friday trying to figure out how to uplaod my gif to my readme because my video 
+files were extremely large. I was looking for all of these shortcuts and trying to experiement,
+but in end, just splitting and speeding up the video so that it became a smaller file size, and
+then converting the smaller file size to GIF format worked for me. 
