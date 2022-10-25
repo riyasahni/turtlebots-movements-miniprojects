@@ -1,0 +1,63 @@
+Name: Riya Sahni
+
+Grades for WarmUp Project
+Intro to Robotics, Fall of 2022, University of Chicago
+
+
+Description                   Points Earned/Total | Notes and Comments
+--------------------------------------------------|------------------------------
+Total                                   097/100   |
+                                                  |
+--------------------------------------------------|------------------------------
+Writeup:                                 27/30    | 
+                                                  |
+   - Drive in a square:                           |
+      + high level descriptions           2/2     | Thorough yet concise, nice!
+      + code explanation                  4/4     | Thorough yet concise, nice!
+      + gif                               2/2     |
+                                                  |
+   - Wall Follower:                               |
+      + high level descriptions           2/2     |
+      + code explanation                  4/4     |
+      + gif                               2/2     |
+                                                  |
+   - Person Follower:                             |
+      + high level descriptions           2/2     |
+      + code explanation                  4/4     |
+      + gif                               2/2     |
+                                                  |
+   - Challenges:                          1/2     | Maximum 50% due to late submission
+                                                  |
+   - Future Work:                         1/2     | Maximum 50% due to late submission
+                                                  |
+   - Takeaways:                           1/2     | Maximum 50% due to late submission
+                                                  |
+--------------------------------------------------|------------------------------
+Code:                                    64/64    |
+                                                  |
+   - Drive in a square:                           |
+      + implementation                   16/16    | Had to make a minor edit (class comment indent/quotation marks) for script to run, but otherwise good.
+      + OOP                               2/2     |
+      + comments/readability              2/2     |
+                                                  |
+   - Wall Follower:                               |
+      + implementation                   18/18    |
+      + OOP                               2/2     |
+      + comments/readability              2/2     |
+                                                  |
+   - Person Follower:                             |
+      + implementation                   18/18    |
+      + OOP                               2/2     |
+      + comments/readability              2/2     |
+                                                  |
+--------------------------------------------------|------------------------------
+Rosbag Recordings:                        6/6     |
+                                                  |
+   - Drive in a square:                   2/2     |
+                                                  |
+   - Wall Follower:                       2/2     |
+                                                  |
+   - Person Follower                      2/2     |
+                                                  |
+--------------------------------------------------|------------------------------
+   Other Notes & Comments:
